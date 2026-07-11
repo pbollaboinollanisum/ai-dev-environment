@@ -4,9 +4,9 @@ setup:
 	./setup.sh
 
 verify:
-	@echo "Verifying installation..."
-	@docker --version || echo "Docker not installed"
-	@java -version || echo "Java not installed"
+        @echo "Verifying installation..."
+        @java -version || echo "Java not installed"
+
 	@node -v || echo "Node not installed"
 	@python3 --version || echo "Python not installed"
 	@uv --version || echo "uv not installed"
