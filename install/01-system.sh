@@ -25,6 +25,7 @@ PACKAGES=(
     jq
     tree
     unzip
+    zip
     tmux
     htop
     build-essential
