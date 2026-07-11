@@ -1,0 +1,16 @@
+# Logs
+*.log
+setup.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Creds (though none should be here)
+.env
+*.pem
+*.key
+
+# Temp files
+*.tmp
+*.swp
