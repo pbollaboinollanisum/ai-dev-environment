@@ -23,6 +23,12 @@ log() {
     echo -e "${GREEN}[$(date +'%Y-%m-%d %H:%M:%S')] $1${NC}" | tee -a $LOG_FILE
 }
 
+# Run cleanup first to ensure maximum available space
+if [ -f "scripts/cleanup.sh" ]; then
+    log "Running cleanup..."
+    ./scripts/cleanup.sh
+fi
+
 # Ensure ~/.local/bin is in PATH (required for uv and other local tools)
 export PATH="$HOME/.local/bin:$PATH"
 
