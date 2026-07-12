@@ -13,6 +13,11 @@ if command -v pnpm &> /dev/null; then
     pnpm store prune || true
 fi
 
+# UV cleanup
+if command -v uv &> /dev/null; then
+    uv cache clean || true
+fi
+
 # APT cleanup (if sudo available)
 if command -v apt-get &> /dev/null; then
     sudo apt-get clean || true
