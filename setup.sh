@@ -23,6 +23,9 @@ log() {
     echo -e "${GREEN}[$(date +'%Y-%m-%d %H:%M:%S')] $1${NC}" | tee -a $LOG_FILE
 }
 
+# Ensure ~/.local/bin is in PATH (required for uv and other local tools)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Run modular installers
 for script in install/*.sh; do
     if [ -x "$script" ]; then

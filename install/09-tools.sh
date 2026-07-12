@@ -5,7 +5,12 @@ set -e
 
 echo "Installing additional tools..."
 
-# Install JupyterLab via pip
-pip3 install jupyterlab --user || true
+# Install JupyterLab via uv (avoids PEP 668 externally-managed-environment error)
+if command -v uv &> /dev/null; then
+    uv tool install jupyterlab || true
+else
+    # Fallback to pip with --break-system-packages if uv is not found (use with caution)
+    pip3 install jupyterlab --user --break-system-packages || true
+fi
 
 echo "Additional tools installed."
