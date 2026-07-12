@@ -18,6 +18,12 @@ if command -v uv &> /dev/null; then
     uv cache clean || true
 fi
 
+# Deep cleanup of common cache directories
+echo "Performing deep cleanup of ~/.cache and other temporary areas..."
+rm -rf ~/.cache/* || true
+rm -rf ~/.npm/_cacache || true
+rm -rf ~/.local/share/pnpm/store || true
+
 # APT cleanup (if sudo available)
 if command -v apt-get &> /dev/null; then
     sudo apt-get clean || true
