@@ -15,4 +15,9 @@ fi
 npm install -g @google/gemini-cli || true
 npm install -g @anthropic-ai/claude-code || true
 
+# Pull recommended AI models (if ollama is running)
+if command -v ollama &> /dev/null; then
+    ./scripts/ollama-models.sh || true
+fi
+
 echo "AI tools installed."
